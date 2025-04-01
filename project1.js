@@ -2,8 +2,11 @@ const eventNameInput = document.getElementById("eventName");
 const eventDateInput = document.getElementById("eventDate");
 const calculateBtn = document.getElementById("calculateBtn");
 const resultDiv = document.getElementById("result");
+
+
 calculateBtn.addEventListener("click", function () {
   // / Get input values
+  // console.log("1",eventNameInput.value)
   const eventName = eventNameInput.value.trim();
   const eventDate = eventDateInput.value;
 
@@ -12,18 +15,21 @@ calculateBtn.addEventListener("click", function () {
     resultDiv.textContent = "Please enter a valid event name.";
     return;
   }
-
+// console.log("testing")
   if (!eventDate) {
     resultDiv.textContent = "Please select a valid date.";
     return;
   }
   const currentDate = new Date();
   const targetDate = new Date(eventDate);
-  if (targetDate < targetDate) {
+  // console.log(targetDate,currentDate)
+  if (targetDate  < currentDate ) {
     resultDiv.textContent = "The event date must be in the future";
-  } else {
-    resultDiv.textContent = "";
-  }
+    return;
+  } 
+  // else {
+  //   resultDiv.textContent = "";
+  // }
   const timeDifference = targetDate - currentDate;
   //   if(timeDifference){
   //   resultDiv.textContent = `Days left ${timeDifference}`;
